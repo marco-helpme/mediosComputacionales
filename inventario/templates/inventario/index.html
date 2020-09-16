@@ -22,7 +22,7 @@
                     <div class="card-body">
                         {% for area in area %}
                             {% if area.region.nombre == region.nombre %}
-                                <li>{{ area.nombre }}</li>
+                                <li><a href="{{ area.id }}">{{ area.nombre }}</a></li>
                             {% endif %}
                         {% endfor %}
                     </div>

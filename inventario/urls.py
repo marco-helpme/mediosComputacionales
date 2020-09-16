@@ -10,7 +10,7 @@ urlpatterns = [
     # path('<int:question_id>/vote/', views.vote, name='vote'),
 # ex: /polls/
     # ex: /polls/5/
-    # path('<int:id>/', views.PC, name='area'),
+    path('<int:id>/', views.detail, name='detail'),
     # ex: /polls/5/results/
     # path('<int:pc_id>/results/', views.results, name='results'),
     # ex: /polls/5/vote/
