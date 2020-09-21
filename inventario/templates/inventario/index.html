@@ -1,48 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Inventario</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+{% extends "layout.html" %}
+{% load static %}
 
-    <!-- JS, Popper.js, and jQuery -->
-
-</head>
-<body>
-<div class="container">
-    <div class="row">
-        {% for region in region %}
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
             <div class="col">
-                <div class="card text-center">
-                    <div class="card-header">
-                        {{ region.nombre }}
-                    </div>
+                <div class="card" style="border: none">
+                    <img src="{% static 'inventario/img/index/juego-de-azar.png' %}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        {% for area in area %}
-                            {% if area.region.nombre == region.nombre %}
-                                <li><a href="{{ area.id }}">{{ area.nombre }}</a></li>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                    <div class="card-footer text-muted">
-                        2 days ago
+                        <h5 class="card-title text-center" style="color: aliceblue">Computadoras</h5>
+                        <p class="card-text text-center">Cantidad <span class="badge badge-primary"> 156</span></p>
                     </div>
                 </div>
             </div>
-        {% endfor %}
+            <div class="col">
+                <div class="card" style="border: none">
+                    <img src="{% static 'inventario/img/index/impresora (1).png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Impresoras</h5>
+                        <p class="card-text text-center">Cantidad <span class="badge badge-primary"> 156</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="border: none">
+                    <img src="{% static 'inventario/img/index/servidor.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Computadoras en Red</h5>
+                        <p class="card-text text-center">Cantidad <span class="badge badge-primary"> 156</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+    <div class="container mt-4">
+        <div class="row">
+            {% for region in region %}
+                <div class="col">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            {{ region.nombre }}
+                        </div>
+                        <div class="card-body">
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
-</body>
-</html>
+                            <div class="card text-center">
+                                {% for area in area %}
+                                    {% if area.region.nombre == region.nombre %}
+                                        <div class="card-header">
+                                            <h1><a href="{{ area.id }}">{{ area.nombre }}</a></h1>
+                                        </div>
+                                        <div class="card-body">
+                                            {% for cantidadpc in cantidadpc %}
+                                                {% if cantidadpc.area.id == area.id %}
+                                                    <h3 class="text-left">Cantidad de pc {{ cantidadpc.cantpc }}</h3>
+                                                    <h3 class="text-left">En Red {{ cantidadpc.enred }}</h3>
+                                                    <h3 class="text-left">
+                                                        Impresoras {{ cantidadpc.cantImpresoras }}</h3>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+
+                                    {% endif %}
+                                {% endfor %}
+
+
+                            </div>
+
+                        </div>
+                        <div class="card-footer text-muted">
+                            2 days ago
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

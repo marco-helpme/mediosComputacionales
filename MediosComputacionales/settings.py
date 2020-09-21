@@ -25,7 +25,7 @@ SECRET_KEY = '74=-o031zny+d&y=qv3iyqxwu)11s)p790-^-&1pib974=-re7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.43.152', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -64,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'inventario.views.region_context_processors',
             ],
         },
     },

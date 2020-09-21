@@ -77,6 +77,7 @@ class Impresora(models.Model):
     marca = models.CharField(max_length=200)
     modelo = models.CharField(max_length=200)
     noSerie = models.CharField(max_length=200)
+    icono = models.CharField(max_length=200, default='no tiene')
     def __str__(self):
         return self.marca + ' ' +  str(self.modelo) + ' ' + str(self.noSerie)
 

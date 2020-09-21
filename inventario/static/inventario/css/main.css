@@ -1,0 +1,18 @@
+body {
+    background: rgb(186,75,11);
+    background: linear-gradient(90deg, rgba(186,75,11,1) 0%, rgba(221,120,83,0.9923319669664741) 40%, rgba(255,142,3,1) 100%);
+}
+
+.card {
+    background: inherit;
+    color: aliceblue;
+}
+nav {
+    background: rgb(186,75,11);
+    background: linear-gradient(90deg, rgba(186,75,11,1) 0%, rgba(221,120,83,0.9923319669664741) 40%, rgba(255,142,3,1) 100%);
+}
+
+.col {
+    padding-right: 40px;
+    padding-left: 40px;
+}

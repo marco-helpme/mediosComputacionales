@@ -1,21 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Detail</title>
-</head>
-<body>
-{{ area }}
+{% extends 'layout.html' %}
+
+{% block content %}
+    {{ area }}
 
     {% for pc in pc %}
         {% if pc.area.id == area.id %}
         <li>{{ pc.SO }}</li>
-        <li>{{ pc.numeroDeInventario }}</li>
+        <li><a href="/pc/{{ pc.id }}">{{ pc.numeroDeInventario }}</a></li>
         <li>{{ pc.enRed }}</li>
         <li>{{ pc.responsable }}</li>
         <li>{% endif %}</li>
     {% endfor %}
+{% endblock %}
 
-
-</body>
-</html>
