@@ -1,0 +1,169 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% load static %}
+    {{ pc }}
+    {{ cpu }}
+    {% if ram %}
+        {{ ram }}
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            {% for cpu in cpu %}
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{% static 'inventario/img/cpu.png' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">CPU</h5>
+                            <p class="card-text">Marca: {{ cpu.marca }}</p>
+                            <p class="card-text">Modelo: {{ cpu.modelo }}</p>
+                            <p class="card-text">Capacidad: {{ cpu.capacidad }}</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% if ram %}
+            {% for ram in ram %}
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{% static 'inventario/img/ram.png' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">CPU</h5>
+                            <p class="card-text">Marca: {{ ram.marca }}</p>
+                            <p class="card-text">Modelo: {{ ram.modelo }}</p>
+                            <p class="card-text">Capacidad: {{ ram.capacidad }}</p>
+                            <a href="/admin/inventario/ram/{{ ram.id }}" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'inventario/img/' %}{{ impresora.icono }}.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">CPU</h5>
+                        <p class="card-text text-center">Marca: {{ cpu.marca }}</p>
+                        <p class="card-text text-center">Modelo: {{ cpu.modelo }}</p>
+                        <p class="card-text text-center">Capacidad: {{ cpu.capacidad }}</p>
+                        <a href="#" class="btn btn-primary text-center">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'inventario/img/' %}{{ impresora.icono }}.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">CPU</h5>
+                        <p class="card-text">Marca: {{ cpu.marca }}</p>
+                        <p class="card-text">Modelo: {{ cpu.modelo }}</p>
+                        <p class="card-text">Capacidad: {{ cpu.capacidad }}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'inventario/img/' %}{{ impresora.icono }}.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">CPU</h5>
+                        <p class="card-text">Marca: {{ cpu.marca }}</p>
+                        <p class="card-text">Modelo: {{ cpu.modelo }}</p>
+                        <p class="card-text">Capacidad: {{ cpu.capacidad }}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'inventario/img/' %}{{ impresora.icono }}.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">CPU</h5>
+                        <p class="card-text">Marca: {{ cpu.marca }}</p>
+                        <p class="card-text">Modelo: {{ cpu.modelo }}</p>
+                        <p class="card-text">Capacidad: {{ cpu.capacidad }}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'inventario/img/' %}{{ impresora.icono }}.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">CPU</h5>
+                        <p class="card-text">Marca: {{ cpu.marca }}</p>
+                        <p class="card-text">Modelo: {{ cpu.modelo }}</p>
+                        <p class="card-text">Capacidad: {{ cpu.capacidad }}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'inventario/img/' %}{{ impresora.icono }}.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">CPU</h5>
+                        <p class="card-text">Marca: {{ cpu.marca }}</p>
+                        <p class="card-text">Modelo: {{ cpu.modelo }}</p>
+                        <p class="card-text">Capacidad: {{ cpu.capacidad }}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'inventario/img/' %}{{ impresora.icono }}.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">CPU</h5>
+                        <p class="card-text">Marca: {{ cpu.marca }}</p>
+                        <p class="card-text">Modelo: {{ cpu.modelo }}</p>
+                        <p class="card-text">Capacidad: {{ cpu.capacidad }}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'inventario/img/' %}{{ impresora.icono }}.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">CPU</h5>
+                        <p class="card-text">Marca: {{ cpu.marca }}</p>
+                        <p class="card-text">Modelo: {{ cpu.modelo }}</p>
+                        <p class="card-text">Capacidad: {{ cpu.capacidad }}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'inventario/img/' %}{{ impresora.icono }}.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">CPU</h5>
+                        <p class="card-text">Marca: {{ cpu.marca }}</p>
+                        <p class="card-text">Modelo: {{ cpu.modelo }}</p>
+                        <p class="card-text">Capacidad: {{ cpu.capacidad }}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'inventario/img/' %}{{ impresora.icono }}.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">CPU</h5>
+                        <p class="card-text">Marca: {{ cpu.marca }}</p>
+                        <p class="card-text">Modelo: {{ cpu.modelo }}</p>
+                        <p class="card-text">Capacidad: {{ cpu.capacidad }}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+{% endblock %}

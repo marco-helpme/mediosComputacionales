@@ -20,7 +20,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     {% for region in region %}
-                        <a class="dropdown-item" href="/{{ region.id }}">{{ region.nombre }}</a>
+                        <a class="dropdown-item" href="/region/{{ region.id }}">{{ region.nombre }}</a>
                     {% endfor %}
                 </div>
             </li>
@@ -60,7 +60,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                <a class="nav-link" href="/admin" tabindex="-1" >Admin</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">

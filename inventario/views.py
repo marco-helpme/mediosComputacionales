@@ -12,23 +12,33 @@ def index(request):
     area = Area.objects.all()
     pc = PC.objects.all()
     impresora = Impresora.objects.all()
-    cantidadpc = []
-    for a in area:
-        cantidadpc.append(cantpc(
-            pc, a, impresora
-        ))
+    cantidadpc = PC.objects.count()
+    cantidadImpresora = Impresora.objects.count()
+    PcRed = PC.objects.filter(enRed=True).count()
 
-    context = {'area': area, 'region': region, 'pc': pc, 'cantidadpc': cantidadpc}
+    context = {'area': area, 'region': region, 'pc': pc, 'cantidadpc': cantidadpc, 'cantidadImpresora': cantidadImpresora, 'PcRed': PcRed }
     return render(request, 'inventario/index.html', context)
 
 
 def detail(request, id):
     area = Area.objects.get(id=id)
     pc = PC.objects.all()
-    context = {'area': area, 'pc': pc}
+    cantidadpc = PC.objects.filter(area_id=id).count()
+    cantidadImpresora = Impresora.objects.filter(pc__area_id=id).count()
+    PcRed = PC.objects.filter(area_id=id).filter(enRed=True).count()
+    context = {'area': area, 'pc': pc, 'cantidadpc': cantidadpc, 'cantidadImpresora': cantidadImpresora, 'PcRed': PcRed }
+
     return render(request, 'inventario/detail.html', context)
 
+def region_detail(request, id):
+    area = Area.objects.get(id=id)
+    pc = PC.objects.all()
+    cantidadpc = PC.objects.filter(area__region_id=id).count()
+    cantidadImpresora = Impresora.objects.filter(pc__area__region_id=id).count()
+    PcRed = PC.objects.filter(area__region_id=id).filter(enRed=True).count()
+    context = {'area': area, 'pc': pc, 'cantidadpc': cantidadpc, 'cantidadImpresora': cantidadImpresora, 'PcRed': PcRed }
 
+    return render(request, 'inventario/detail.html', context)
 def pc_component(request, id):
     pc = PC.objects.get(id=id)
     # try:

@@ -2,37 +2,7 @@
 {% load static %}
 
 {% block content %}
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col">
-                <div class="card" style="border: none">
-                    <img src="{% static 'inventario/img/index/juego-de-azar.png' %}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title text-center" style="color: aliceblue">Computadoras</h5>
-                        <p class="card-text text-center">Cantidad <span class="badge badge-primary"> 156</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="border: none">
-                    <img src="{% static 'inventario/img/index/impresora (1).png' %}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Impresoras</h5>
-                        <p class="card-text text-center">Cantidad <span class="badge badge-primary"> 156</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="border: none">
-                    <img src="{% static 'inventario/img/index/servidor.png' %}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Computadoras en Red</h5>
-                        <p class="card-text text-center">Cantidad <span class="badge badge-primary"> 156</span></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% include 'inventario/infoCOmponent.html' %}>
     <div class="container mt-4">
         <div class="row">
             {% for region in region %}
@@ -50,14 +20,7 @@
                                             <h1><a href="{{ area.id }}">{{ area.nombre }}</a></h1>
                                         </div>
                                         <div class="card-body">
-                                            {% for cantidadpc in cantidadpc %}
-                                                {% if cantidadpc.area.id == area.id %}
-                                                    <h3 class="text-left">Cantidad de pc {{ cantidadpc.cantpc }}</h3>
-                                                    <h3 class="text-left">En Red {{ cantidadpc.enred }}</h3>
-                                                    <h3 class="text-left">
-                                                        Impresoras {{ cantidadpc.cantImpresoras }}</h3>
-                                                {% endif %}
-                                            {% endfor %}
+
                                         </div>
 
                                     {% endif %}
