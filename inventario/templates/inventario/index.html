@@ -3,39 +3,39 @@
 
 {% block content %}
     {% include 'inventario/infoCOmponent.html' %}>
-    <div class="container mt-4">
-        <div class="row">
-            {% for region in region %}
-                <div class="col">
-                    <div class="card text-center">
-                        <div class="card-header">
-                            {{ region.nombre }}
-                        </div>
-                        <div class="card-body">
-
-                            <div class="card text-center">
-                                {% for area in area %}
-                                    {% if area.region.nombre == region.nombre %}
-                                        <div class="card-header">
-                                            <h1><a href="{{ area.id }}">{{ area.nombre }}</a></h1>
-                                        </div>
-                                        <div class="card-body">
-
-                                        </div>
-
-                                    {% endif %}
-                                {% endfor %}
-
-
-                            </div>
-
-                        </div>
-                        <div class="card-footer text-muted">
-                            2 days ago
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
+{#    <div class="container mt-4">#}
+{#        <div class="row">#}
+{#            {% for region in region %}#}
+{#                <div class="col">#}
+{#                    <div class="card text-center">#}
+{#                        <div class="card-header">#}
+{#                            {{ region.nombre }}#}
+{#                        </div>#}
+{#                        <div class="card-body">#}
+{##}
+{#                            <div class="card text-center">#}
+{#                                {% for area in area %}#}
+{#                                    {% if area.region.nombre == region.nombre %}#}
+{#                                        <div class="card-header">#}
+{#                                            <h1><a href="{{ area.id }}">{{ area.nombre }}</a></h1>#}
+{#                                        </div>#}
+{#                                        <div class="card-body">#}
+{##}
+{#                                        </div>#}
+{##}
+{#                                    {% endif %}#}
+{#                                {% endfor %}#}
+{##}
+{##}
+{#                            </div>#}
+{##}
+{#                        </div>#}
+{#                        <div class="card-footer text-muted">#}
+{#                            2 days ago#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
 {% endblock %}

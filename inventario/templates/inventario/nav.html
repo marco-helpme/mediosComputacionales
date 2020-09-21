@@ -24,18 +24,29 @@
                     {% endfor %}
                 </div>
             </li>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    {% if user.is_authenticated %}
-                        <li><a href="">Logout</a></li>
-                        <li><a href=""
-                               class="p-r-none">Accounts</a></li>
-                    {% else %}
-                        <li><a href="">Login</a></li>
-                        <li><a href="" class="p-r-none">Sign Up</a></li>
-                    {% endif %}
-                </ul>
-            </div>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Áreas
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% for area in areas %}
+                        <a class="dropdown-item" href="/area/{{ area.id }}">{{ area.nombre }}</a>
+                    {% endfor %}
+                </div>
+            </li>
+            {#            <div class="collapse navbar-collapse">#}
+            {#                <ul class="nav navbar-nav navbar-right">#}
+            {#                    {% if user.is_authenticated %}#}
+            {#                        <li><a href="">Logout</a></li>#}
+            {#                        <li><a href=""#}
+            {#                               class="p-r-none">Accounts</a></li>#}
+            {#                    {% else %}#}
+            {#                        <li><a href="">Login</a></li>#}
+            {#                        <li><a href="" class="p-r-none">Sign Up</a></li>#}
+            {#                    {% endif %}#}
+            {#                </ul>#}
+            {#            </div>#}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
@@ -60,7 +71,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/admin" tabindex="-1" >Admin</a>
+                <a class="nav-link" href="/admin" tabindex="-1">Admin</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">

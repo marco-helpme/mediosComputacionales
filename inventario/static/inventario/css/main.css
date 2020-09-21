@@ -6,6 +6,7 @@ body {
 .card {
     background: inherit;
     color: aliceblue;
+    margin: auto;
 }
 nav {
     background: rgb(186,75,11);
