@@ -61,9 +61,10 @@ def pc_component(request, id):
     #     impresora = Impresora.objects.get(pc_id=id)
     #
     try:
-        impresora = Impresora.objects.get(pc_id=id)
+        impresora = Impresora.objects.filter(pc_id=id)
         cpu = Cpu.objects.filter(pc_id=id)
         ram = RAM.objects.filter(pc_id=id)
+        hdd = HDD.objects.filter(pc__id=id)
         motherboard = Motherboard.objects.filter(pc_id=id)
         ups = UPS.objects.filter(pc_id=id)
         trajeta_de_video = Targeta_de_Video.objects.filter(pc_id=id)
@@ -71,6 +72,10 @@ def pc_component(request, id):
         monitor = Monitor.objects.filter(pc_id=id)
         mouse = Mouse.objects.filter(pc_id=id)
         teclado = Teclado.objects.filter(pc_id=id)
+        bocinas = Bocinas.objects.filter(pc_id=id)
+        estabilizador = Estabilizador.objects.filter(pc_id=id)
+        fuente_interna = Fuente_Interna.objects.filter(pc_id=id)
+        lector = Lector.objects.filter(pc_id=id)
     except:
         impresora = ''
         cpu = ''
@@ -82,10 +87,15 @@ def pc_component(request, id):
         monitor = ''
         mouse = ''
         teclado = ''
+        bocinas = ''
+        estabilizador = ''
+        fuente_interna = ''
+        lector = ''
+        hdd = ''
 
     context = {'pc': pc, 'impresora': impresora, 'cpu': cpu, 'ram': ram, 'motherboard': motherboard, 'ups': ups,
                'trajeta_de_video': trajeta_de_video, 'tarjeta_de_red': tarjeta_de_red, 'monitor': monitor,
-               'mouse': mouse, 'teclado': teclado}
+               'mouse': mouse, 'teclado': teclado, 'hdd': hdd, 'bocinas': bocinas, 'estabilizador': estabilizador, 'fuente_interna':fuente_interna, 'lector':lector }
     return render(request, 'inventario/pc_component.html', context)
 
 
