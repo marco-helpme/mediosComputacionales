@@ -34,14 +34,16 @@ def detail(request, id):
 
 
 def region_detail(request, id):
-    area = Area.objects.get(id=id)
-    pc = PC.objects.all()
+    region = Region.objects.get(id=id)
+    area = Area.objects.filter(region__area=id)
+    pc = PC.objects.filter(area__region_id=id)
     cantidadpc = PC.objects.filter(area__region_id=id).count()
     cantidadImpresora = Impresora.objects.filter(pc__area__region_id=id).count()
     PcRed = PC.objects.filter(area__region_id=id).filter(enRed=True).count()
-    context = {'area': area, 'pc': pc, 'cantidadpc': cantidadpc, 'cantidadImpresora': cantidadImpresora, 'PcRed': PcRed}
+    context = {'area': area, 'pc': pc, 'cantidadpc': cantidadpc, 'cantidadImpresora': cantidadImpresora, 'PcRed': PcRed,
+               'region_actual': region}
 
-    return render(request, 'inventario/detail.html', context)
+    return render(request, 'inventario/region_detail.html', context)
 
 
 def area_detail(request, id):
@@ -52,7 +54,7 @@ def area_detail(request, id):
     PcRed = PC.objects.filter(area__id=id).filter(enRed=True).count()
     context = {'area': area, 'pc': pc, 'cantidadpc': cantidadpc, 'cantidadImpresora': cantidadImpresora, 'PcRed': PcRed}
 
-    return render(request, 'inventario/detail.html', context)
+    return render(request, 'inventario/area_detail.html', context)
 
 
 def pc_component(request, id):
@@ -95,7 +97,8 @@ def pc_component(request, id):
 
     context = {'pc': pc, 'impresora': impresora, 'cpu': cpu, 'ram': ram, 'motherboard': motherboard, 'ups': ups,
                'trajeta_de_video': trajeta_de_video, 'tarjeta_de_red': tarjeta_de_red, 'monitor': monitor,
-               'mouse': mouse, 'teclado': teclado, 'hdd': hdd, 'bocinas': bocinas, 'estabilizador': estabilizador, 'fuente_interna':fuente_interna, 'lector':lector }
+               'mouse': mouse, 'teclado': teclado, 'hdd': hdd, 'bocinas': bocinas, 'estabilizador': estabilizador,
+               'fuente_interna': fuente_interna, 'lector': lector}
     return render(request, 'inventario/pc_component.html', context)
 
 
