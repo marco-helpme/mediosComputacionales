@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block content %}
+{{ pc }}
+    <form action="/pc/list" method="POST">
+        <h3>Pc por numero de Inventario:</h3>
+        <input  name="inventario" value="0" style="width:40px">
+        <input type="submit" value="Filtrar">
+        {% csrf_token %}
+    </form>
+    <form action="/pc/list" method="POST">
+        <h3>Pc por So:</h3>
+        <input  name="so" value="Windos xp">
+        <input type="submit" value="Filtrar">
+        {% csrf_token %}
+    </form>
+    <div class="container-fluid">
+        <div class="row">
+            {% for pc in pc %}
+                <div class="col">
+                    <div class="card mycard">
+                        <img src="{% static 'inventario/img/area/016-pc.png' %}" class="card-img-top myimg" alt="...">
+                        <div class="card-body text-center">
+                            <p class="card-text text-center">NO Inventario <span
+                                    class="badge badge-primary"> {{ pc.numeroDeInventario }}</span>
+                            </p>
+                            <p class="card-text text-center">Sistema Operativo: {{ pc.SO }}</p>
+                            <p class="card-text text-center">Responsable: {{ pc.responsable }}</p>
+                            <p class="card-text text-center">En red: {{ pc.enRed }}</p>
+                            <a href="/pc/{{ pc.id }}" class="btn btn-primary" style="margin: auto">Ver</a>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}

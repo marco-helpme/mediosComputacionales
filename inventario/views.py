@@ -57,6 +57,19 @@ def area_detail(request, id):
     return render(request, 'inventario/area_detail.html', context)
 
 
+def pc_list(request):
+    pc = PC.objects.all()
+
+    if request.POST.get('inventario'):
+        Noinventario = int(request.POST.get('inventario'))
+        pc = PC.objects.filter(numeroDeInventario = Noinventario)
+    if request.POST.get('so'):
+        so = request.POST.get('so')
+        pc = PC.objects.filter(SO__nombre=so)
+
+    context = {'pc': pc }
+    return render(request, 'inventario/pc_list.html', context)
+
 def pc_component(request, id):
     pc = PC.objects.get(id=id)
     # try:
