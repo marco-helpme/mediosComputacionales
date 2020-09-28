@@ -6,17 +6,7 @@
             {% if cpu %}
                 {% for cpu in cpu %}
                     <div class="col">
-                        <div class="card mycard">
-                            <img src="{% static 'inventario/img/componentes/cpu.png' %}" class="card-img-top myimg"
-                                 alt="...">
-                            <div class="card-body text-center">
-                                <h5 class="card-title text-center">CPU</h5>
-                                <p class="card-text text-center">Marca: {{ cpu.marca }}</p>
-                                <p class="card-text text-center">Modelo: {{ cpu.modelo }}</p>
-                                <p class="card-text text-center">Capacidad: {{ cpu.capacidad }}</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
+                        {% include 'inventario/componentes/cpu.html' %}
                     </div>
                 {% endfor %}
             {% endif %}
@@ -24,18 +14,7 @@
             {% if motherboard %}
                 {% for motherboard in motherboard %}
                     <div class="col">
-                        <div class="card mycard">
-                            <img src="{% static 'inventario/img/componentes/placa-madre.png' %}"
-                                 class="card-img-top myimg" alt="...">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Motherboard</h5>
-                                <p class="card-text">Marca: {{ motherboard.marca }}</p>
-                                <p class="card-text">Modelo: {{ motherboard.modelo }}</p>
-                                <p class="card-text">No Serie: {{ motherboard.noSerie }}</p>
-                                <a href="/admin/inventario/motherboard/{{ motherboard.id }}" class="btn btn-primary">Go
-                                    somewhere</a>
-                            </div>
-                        </div>
+                        {% include 'inventario/componentes/motherboard.html' %}
                     </div>
                 {% endfor %}
             {% endif %}

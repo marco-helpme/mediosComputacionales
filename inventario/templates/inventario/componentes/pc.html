@@ -1,0 +1,22 @@
+{% load static %}
+
+<div class="card mycard">
+    <img src="{% static 'inventario/img/area/016-pc.png' %}" class="card-img-top myimg" alt="...">
+    <div class="card-body text-center">
+        <p class="card-text text-center">NO Inventario <span
+                class="badge badge-primary"> {{ pc.numeroDeInventario }}</span>
+        </p>
+        <p class="card-text text-center">Sistema Operativo: {{ pc.SO }}</p>
+        <p class="card-text text-center">Responsable: {{ pc.responsable }}</p>
+        {% if pc.enRed %}
+            <p class="card-text text-center">En red: {% include 'inventario/iconos/checked.html' %}</p>
+        {% else %}
+            <p class="card-text text-center">En red: {% include 'inventario/iconos/cruz.html' %}</p>
+        {% endif %}
+
+        {% if pc.EsModulo %}
+            <p class="card-text text-center">Módulo</p>
+        {% endif %}
+        <a href="/pc/{{ pc.id }}" class="btn btn-primary" style="margin: auto">{% include 'inventario/iconos/ver.html' %}</a>
+    </div>
+</div>

@@ -8,22 +8,9 @@
         <div class="row">
             {% for pc in pc %}
                 <div class="col">
-                    <div class="card mycard">
-                        <img src="{% static 'inventario/img/area/016-pc.png' %}" class="card-img-top myimg" alt="...">
-                        <div class="card-body text-center">
-                            <p class="card-text text-center">NO Inventario <span
-                                    class="badge badge-primary"> {{ pc.numeroDeInventario }}</span>
-                            </p>
-                            <p class="card-text text-center">Sistema Operativo: {{ pc.SO }}</p>
-                            <p class="card-text text-center">Responsable: {{ pc.responsable }}</p>
-                            <p class="card-text text-center">En red: {{ pc.enRed }}</p>
-                            <a href="/pc/{{ pc.id }}" class="btn btn-primary" style="margin: auto">Ver</a>
-                        </div>
-                    </div>
+                    {% include 'inventario/componentes/pc.html' %}
                 </div>
-
             {% endfor %}
-
         </div>
     </div>
 {% endblock %}

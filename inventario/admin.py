@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 from .models import PC, Area, Region, RAM, Cpu, Monitor, Targeta_de_Red, Lector, Fuente_Interna, Estabilizador, UPS, \
-    Bocinas, Mouse, Teclado, HDD, Motherboard, Targeta_de_Video, SO, Impresora
+    Bocinas, Mouse, Teclado, HDD, Motherboard, Targeta_de_Video, SO, Impresora, TipoCapacidadHDD
 
 admin.site.register(PC)
 admin.site.register(Area)
@@ -23,3 +23,4 @@ admin.site.register(Motherboard)
 admin.site.register(Targeta_de_Video)
 admin.site.register(SO)
 admin.site.register(Impresora)
+admin.site.register(TipoCapacidadHDD)

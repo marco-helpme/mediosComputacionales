@@ -1,0 +1,16 @@
+{% load static %}
+<div class="card mycard">
+    <img src="{% static 'inventario/img/componentes/cpu.png' %}" class="card-img-top myimg"
+         alt="...">
+    <div class="card-body text-center">
+        <h5 class="card-title text-center">CPU</h5>
+        <p class="card-text text-center">Marca: {{ cpu.marca }}</p>
+        <p class="card-text text-center">Modelo: {{ cpu.modelo }}</p>
+        <p class="card-text text-center">Capacidad: {{ cpu.capacidad }}</p>
+        {% if user.is_authenticated %}
+            <a href="/admin/inventario/cpu/{{ cpu.id }}"
+               target="_blank"
+               class="btn btn-primary">{% include 'inventario/iconos/edit.html' %}</a>
+        {% endif %}
+    </div>
+</div>
