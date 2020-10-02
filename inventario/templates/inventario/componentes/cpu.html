@@ -4,10 +4,18 @@
          alt="...">
     <div class="card-body text-center">
         <h5 class="card-title text-center">CPU</h5>
-        <p class="card-text text-center">Marca: {{ cpu.marca }}</p>
-        <p class="card-text text-center">Modelo: {{ cpu.modelo }}</p>
-        <p class="card-text text-center">Capacidad: {{ cpu.capacidad }}</p>
-        {% if user.is_authenticated %}
+        {% if cpu.marca %}
+            <p class="card-text text-center">Marca: {{ cpu.marca }}</p>
+
+        {% endif %}
+        {% if cpu.modelo %}
+            <p class="card-text text-center">Modelo: {{ cpu.modelo }}</p>
+
+        {% endif %}
+        {% if cpu.capacidad %}
+            <p class="card-text text-center">Capacidad: {{ cpu.capacidad }}</p>
+        {% endif %}
+        {% if 'inventario.change_cpu' in perms %}
             <a href="/admin/inventario/cpu/{{ cpu.id }}"
                target="_blank"
                class="btn btn-primary">{% include 'inventario/iconos/edit.html' %}</a>

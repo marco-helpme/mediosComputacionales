@@ -1,0 +1,24 @@
+{% load static %}
+<div class="card mycard">
+    <img src="{% static 'inventario/img/componentes/ram.png' %}" class="card-img-top myimg"
+         alt="...">
+    <div class="card-body text-center">
+        <h5 class="card-title">Ram</h5>
+        {% if ram.marca %}
+            <p class="card-text">Marca: {{ ram.marca }}</p>
+
+        {% endif %}
+        {% if ram.modelo %}
+            <p class="card-text">Modelo: {{ ram.modelo }}</p>
+
+        {% endif %}
+        {% if ram.capacidad %}
+            <p class="card-text">Capacidad: {{ ram.capacidad }}</p>
+        {% endif %}
+        {% if 'inventario.change_ram' in perms %}
+            <a href="/admin/inventario/ram/{{ ram.id }}"
+               target="_blank"
+               class="btn btn-primary">{% include 'inventario/iconos/edit.html' %}</a>
+        {% endif %}
+    </div>
+</div>

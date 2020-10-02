@@ -6,4 +6,13 @@
 {#    {{ user.has_perm() }}#}
 {#    como se manejan los permisos en django #}
 {#    {{ perms.inventario.change_mouse }}#}
+{#    {{ perms.inventario }}#}
+{#    {{ user.has_perm.inventario }}#}
+{#        {{ perms }}#}
+{#        {{user.has_perms.inventario}}#}
+    {% if 'inventario' in perms %}
+    {% if 'inventario.add_cpu' in perms %}
+        <p>In lookup works, too.</p>
+    {% endif %}
+{% endif %}
 {% endblock %}

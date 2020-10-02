@@ -46,6 +46,7 @@ class PC(models.Model):
     enRed = models.BooleanField(default=False)
     EsModulo = models.BooleanField(default=False)
     responsable = models.CharField(max_length=200, blank=True, null=True)
+    archivo = models.FileField(upload_to="archivos/", null=True, blank=True)
 
     def __str__(self):
         return str(self.numeroDeInventario) + ' ' + str(self.area.nombre) + ' ' + str(self.responsable)

@@ -1,0 +1,30 @@
+{% load static %}
+<div class="card mycard">
+    <img src="{% static 'inventario/img/componentes/hard drive.png' %}"
+         class="card-img-top myimg"
+         alt="...">
+    <div class="card-body text-center">
+        <h5 class="card-title text-center">HDD</h5>
+        {% if hdd.marca %}
+            <p class="card-text text-center">Marca: {{ hdd.marca }}</p>
+
+        {% endif %}
+        {% if hdd.modelo %}
+            <p class="card-text text-center">Modelo: {{ hdd.modelo }}</p>
+
+        {% endif %}
+        {% if hdd.capacidad %}
+            <p class="card-text text-center">Capacidad: {{ hdd.capacidad }}</p>
+
+        {% endif %}
+        {% if hdd.noSerie %}
+            <p class="card-text text-center">No Serie: {{ hdd.noSerie }}</p>
+
+        {% endif %}
+        {% if 'inventario.change_hdd' in perms %}
+            <a href="/admin/inventario/hdd/{{ hdd.id }}"
+               target="_blank"
+               class="btn btn-primary">{% include 'inventario/iconos/edit.html' %}</a>
+        {% endif %}
+    </div>
+</div>

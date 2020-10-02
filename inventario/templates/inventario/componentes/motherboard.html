@@ -5,11 +5,20 @@
          class="card-img-top myimg" alt="...">
     <div class="card-body text-center">
         <h5 class="card-title">Motherboard</h5>
-        <p class="card-text">Marca: {{ motherboard.marca }}</p>
-        <p class="card-text">Modelo: {{ motherboard.modelo }}</p>
-        <p class="card-text">No Serie: {{ motherboard.noSerie }}</p>
-        {% if user.is_authenticated %}
-            <a href="/admin/inventario/motherboard/{{ motherboard.id }}" class="btn btn-primary" target="_blank">{% include 'inventario/iconos/edit.html' %}</a>
+        {% if motherboard.marca %}
+            <p class="card-text">Marca: {{ motherboard.marca }}</p>
+
+        {% endif %}
+        {% if motherboard.modelo %}
+            <p class="card-text">Modelo: {{ motherboard.modelo }}</p>
+        {% endif %}
+        {% if  motherboard.noSerie %}
+            <p class="card-text">No Serie: {{ motherboard.noSerie }}</p>
+        {% endif %}
+        {% if 'inventario.change_motherboard' in perms %}
+            <a href="/admin/inventario/motherboard/{{ motherboard.id }}"
+               target="_blank"
+               class="btn btn-primary">{% include 'inventario/iconos/edit.html' %}</a>
         {% endif %}
     </div>
 </div>
