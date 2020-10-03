@@ -11,7 +11,15 @@
     </form>
     <form action="/pc/list" method="POST">
         <h3>Pc por So:</h3>
-        <input name="so" value="Windows Xp">
+{#        <input name="so" value="Windows Xp">#}
+        <div class="form-group col-md-4">
+            <label for="inputState">State</label>
+            <select id="inputState" name="so" class="form-control">
+                <option selected>Choose...</option>
+                <option>Windows Xp</option>
+                <option>Linux</option>
+            </select>
+        </div>
         <input type="submit" value="Filtrar">
         {% csrf_token %}
     </form>
