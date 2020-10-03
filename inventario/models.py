@@ -46,7 +46,6 @@ class PC(models.Model):
     enRed = models.BooleanField(default=False)
     EsModulo = models.BooleanField(default=False)
     responsable = models.CharField(max_length=200, blank=True, null=True)
-    archivo = models.FileField(upload_to="archivos/", null=True, blank=True)
 
     def __str__(self):
         return str(self.numeroDeInventario) + ' ' + str(self.area.nombre) + ' ' + str(self.responsable)
@@ -167,7 +166,7 @@ class Estabilizador(models.Model):
         return self.marca + ' ' + str(self.modelo) + ' ' + str(self.noSerie)
 
 
-class Targeta_de_Video(models.Model):
+class Tarjeta_de_Video(models.Model):
     pc = models.ForeignKey(PC, on_delete=models.CASCADE)
     marca = models.CharField(max_length=200, blank=True, null=True)
     modelo = models.CharField(max_length=200, blank=True, null=True)
@@ -179,7 +178,7 @@ class Targeta_de_Video(models.Model):
         return self.marca + ' ' + str(self.modelo) + ' ' + str(self.capacidad) + ' ' + str(self.noSerie)
 
 
-class Targeta_de_Red(models.Model):
+class Tarjeta_de_Red(models.Model):
     pc = models.ForeignKey(PC, on_delete=models.CASCADE)
     marca = models.CharField(max_length=200, blank=True, null=True)
     modelo = models.CharField(max_length=200, blank=True, null=True)

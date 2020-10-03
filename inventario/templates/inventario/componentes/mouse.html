@@ -1,0 +1,22 @@
+{% load static %}
+<div class="card mycard">
+    <img src="{% static 'inventario/img/componentes/mouse.png' %}" class="card-img-top myimg"
+         alt="...">
+    <div class="card-body text-center">
+        <h5 class="card-title text-center">Mouse</h5>
+        {% if mouse.marca %}
+            <p class="card-text text-center">Marca: {{ mouse.marca }}</p>
+        {% endif %}
+        {% if mouse.modelo %}
+            <p class="card-text text-center">Modelo: {{ mouse.modelo }}</p>
+        {% endif %}
+        {% if mouse.noSerie %}
+            <p class="card-text text-center">No Serie: {{ mouse.noSerie }}</p>
+        {% endif %}
+        {% if 'inventario.change_mouse' in perms %}
+            <a href="/admin/inventario/mouse/{{ mouse.id }}"
+               target="_blank"
+               class="btn btn-primary">{% include 'inventario/iconos/edit.html' %}</a>
+        {% endif %}
+    </div>
+</div>

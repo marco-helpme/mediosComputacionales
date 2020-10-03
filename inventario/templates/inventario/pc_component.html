@@ -39,30 +39,7 @@
             {% if monitor %}
                 {% for monitor in monitor %}
                     <div class="col">
-                        <div class="card mycard">
-                            <img src="{% static 'inventario/img/componentes/monitor.png' %}" class="card-img-top myimg"
-                                 alt="...">
-                            <div class="card-body text-center">
-                                <h5 class="card-title text-center">Monitor</h5>
-                                {% if monitor.marca %}
-                                    <p class="card-text text-center">Marca: {{ monitor.marca }}</p>
-
-                                {% endif %}
-                                {% if monitor.modelo %}
-                                    <p class="card-text text-center">Modelo: {{ monitor.modelo }}</p>
-
-                                {% endif %}
-                                {% if monitor.noSerie %}
-                                    <p class="card-text text-center">No Serie: {{ monitor.noSerie }}</p>
-
-                                {% endif %}
-                                {% if 'inventario.change_monitor' in perms %}
-                                    <a href="/admin/inventario/monitor/{{ monitor.id }}"
-                                       target="_blank"
-                                       class="btn btn-primary">{% include 'inventario/iconos/edit.html' %}</a>
-                                {% endif %}
-                            </div>
-                        </div>
+                        {% include 'inventario/componentes/monitor.html' %}
                     </div>
                 {% endfor %}
             {% endif %}
@@ -70,30 +47,7 @@
             {% if impresora %}
                 {% for impresora in impresora %}
                     <div class="col">
-                        <div class="card mycard">
-                            <img src="{% static 'inventario/img/componentes/printer.png' %}" class="card-img-top myimg"
-                                 alt="...">
-                            <div class="card-body text-center">
-                                <h5 class="card-title text-center">impresora</h5>
-                                {% if impresora.marca %}
-                                    <p class="card-text text-center">Marca: {{ impresora.marca }}</p>
-
-                                {% endif %}
-                                {% if impresora.modelo %}
-                                    <p class="card-text text-center">Modelo: {{ impresora.modelo }}</p>
-
-                                {% endif %}
-                                {% if impresora.noSerie %}
-                                    <p class="card-text text-center">No Serie: {{ impresora.noSerie }}</p>
-
-                                {% endif %}
-                                {% if 'inventario.change_impresora' in perms %}
-                                    <a href="/admin/inventario/impresora/{{ impresora.id }}"
-                                       target="_blank"
-                                       class="btn btn-primary">{% include 'inventario/iconos/edit.html' %}</a>
-                                {% endif %}
-                            </div>
-                        </div>
+                        {% include 'inventario/componentes/impresora.html' %}
                     </div>
                 {% endfor %}
             {% endif %}
@@ -101,30 +55,7 @@
             {% if teclado %}
                 {% for teclado in teclado %}
                     <div class="col">
-                        <div class="card mycard">
-                            <img src="{% static 'inventario/img/componentes/keyboard.png' %}" class="card-img-top myimg"
-                                 alt="...">
-                            <div class="card-body text-center">
-                                <h5 class="card-title text-center">Teclado</h5>
-                                {% if teclado.marca %}
-                                    <p class="card-text text-center">Marca: {{ teclado.marca }}</p>
-
-                                {% endif %}
-                                {% if teclado.modelo %}
-                                    <p class="card-text text-center">Modelo: {{ teclado.modelo }}</p>
-
-                                {% endif %}
-                                {% if teclado.noSerie %}
-                                    <p class="card-text text-center">No Serie: {{ teclado.noSerie }}</p>
-
-                                {% endif %}
-                                {% if 'inventario.change_teclado' in perms %}
-                                    <a href="/admin/inventario/teclado/{{ teclado.id }}"
-                                       target="_blank"
-                                       class="btn btn-primary">{% include 'inventario/iconos/edit.html' %}</a>
-                                {% endif %}
-                            </div>
-                        </div>
+                        {% include 'inventario/componentes/teclado.html' %}
                     </div>
                 {% endfor %}
             {% endif %}
@@ -132,30 +63,7 @@
             {% if mouse %}
                 {% for mouse in mouse %}
                     <div class="col">
-                        <div class="card mycard">
-                            <img src="{% static 'inventario/img/componentes/mouse.png' %}" class="card-img-top myimg"
-                                 alt="...">
-                            <div class="card-body text-center">
-                                <h5 class="card-title text-center">Mouse</h5>
-                                {% if mouse.marca %}
-                                    <p class="card-text text-center">Marca: {{ mouse.marca }}</p>
-
-                                {% endif %}
-                                {% if mouse.modelo %}
-                                    <p class="card-text text-center">Modelo: {{ mouse.modelo }}</p>
-
-                                {% endif %}
-                                {% if mouse.noSerie %}
-                                    <p class="card-text text-center">No Serie: {{ mouse.noSerie }}</p>
-
-                                {% endif %}
-                                {% if 'inventario.change_mouse' in perms %}
-                                    <a href="/admin/inventario/mouse/{{ mouse.id }}"
-                                       target="_blank"
-                                       class="btn btn-primary">{% include 'inventario/iconos/edit.html' %}</a>
-                                {% endif %}
-                            </div>
-                        </div>
+                        {% include 'inventario/componentes/mouse.html' %}
                     </div>
                 {% endfor %}
             {% endif %}
@@ -163,17 +71,7 @@
             {% if bocinas %}
                 {% for bocina in bocinas %}
                     <div class="col">
-                        <div class="card mycard">
-                            <img src="{% static 'inventario/img/componentes/speakers.png' %}" class="card-img-top myimg"
-                                 alt="...">
-                            <div class="card-body text-center">
-                                <h5 class="card-title text-center">Bocinas</h5>
-                                <p class="card-text text-center">Marca: {{ bocina.marca }}</p>
-                                <p class="card-text text-center">Modelo: {{ bocina.modelo }}</p>
-                                <p class="card-text text-center">No Serie: {{ bocina.noSerie }}</p>
-                                <a href="#" class="btn btn-primary text-center">Go somewhere</a>
-                            </div>
-                        </div>
+                        {% include 'inventario/componentes/bocinas.html' %}
                     </div>
                 {% endfor %}
             {% endif %}
@@ -181,18 +79,7 @@
             {% if ups %}
                 {% for ups in ups %}
                     <div class="col">
-                        <div class="card mycard">
-                            <img src="{% static 'inventario/img/componentes/fuente-de-alimentacion.png' %}"
-                                 class="card-img-top myimg"
-                                 alt="...">
-                            <div class="card-body text-center">
-                                <h5 class="card-title text-center">UPS</h5>
-                                <p class="card-text text-center">Marca: {{ ups.marca }}</p>
-                                <p class="card-text text-center">Modelo: {{ ups.modelo }}</p>
-                                <p class="card-text text-center">No Serie: {{ ups.noSerie }}</p>
-                                <a href="#" class="btn btn-primary text-center">Go somewhere</a>
-                            </div>
-                        </div>
+                        {% include 'inventario/componentes/ups.html' %}
                     </div>
                 {% endfor %}
             {% endif %}
@@ -200,17 +87,7 @@
             {% if estabilizador %}
                 {% for estabilizador in estabilizador %}
                     <div class="col">
-                        <div class="card mycard">
-                            <img src="{% static 'inventario/img/componentes/power.png' %}" class="card-img-top myimg"
-                                 alt="...">
-                            <div class="card-body text-center">
-                                <h5 class="card-title text-center">Estabilizador</h5>
-                                <p class="card-text text-center">Marca: {{ estabilizador.marca }}</p>
-                                <p class="card-text text-center">Modelo: {{ estabilizador.modelo }}</p>
-                                <p class="card-text text-center">No Serie: {{ estabilizador.noSerie }}</p>
-                                <a href="#" class="btn btn-primary text-center">Go somewhere</a>
-                            </div>
-                        </div>
+                        {% include 'inventario/componentes/estabilizador.html' %}
                     </div>
                 {% endfor %}
             {% endif %}
@@ -218,19 +95,7 @@
             {% if trajeta_de_video %}
                 {% for tarjeta_de_video in trajeta_de_video %}
                     <div class="col">
-                        <div class="card mycard">
-                            <img src="{% static 'inventario/img/componentes/graphics card.png' %}"
-                                 class="card-img-top myimg"
-                                 alt="...">
-                            <div class="card-body text-center">
-                                <h5 class="card-title text-center">Tarjeta de Video</h5>
-                                <p class="card-text text-center">Marca: {{ tarjeta_de_video.marca }}</p>
-                                <p class="card-text text-center">Modelo: {{ tarjeta_de_video.modelo }}</p>
-                                <p class="card-text text-center">Capacidad: {{ tarjeta_de_video.capacidad }}</p>
-                                <p class="card-text text-center">No Serie: {{ tarjeta_de_video.noSerie }}</p>
-                                <a href="#" class="btn btn-primary text-center">Go somewhere</a>
-                            </div>
-                        </div>
+                        {% include 'inventario/componentes/tarjeta_de_video.html' %}
                     </div>
                 {% endfor %}
             {% endif %}
@@ -238,17 +103,7 @@
             {% if tarjeta_de_red %}
                 {% for tarjeta_de_red in tarjeta_de_red %}
                     <div class="col">
-                        <div class="card mycard">
-                            <img src="{% static 'inventario/img/componentes/lancard.png' %}" class="card-img-top myimg"
-                                 alt="...">
-                            <div class="card-body text-center">
-                                <h5 class="card-title text-center">Tarjeta de Red</h5>
-                                <p class="card-text text-center">Marca: {{ tarjeta_de_red.marca }}</p>
-                                <p class="card-text text-center">Modelo: {{ tarjeta_de_red.modelo }}</p>
-                                <p class="card-text text-center">No Serie: {{ tarjeta_de_red.noSerie }}</p>
-                                <a href="#" class="btn btn-primary text-center">Go somewhere</a>
-                            </div>
-                        </div>
+                        {% include 'inventario/componentes/tarjeta_de_red.html' %}
                     </div>
                 {% endfor %}
             {% endif %}
@@ -256,18 +111,7 @@
             {% if fuente_interna %}
                 {% for fuente_interna in fuente_interna %}
                     <div class="col">
-                        <div class="card mycard">
-                            <img src="{% static 'inventario/img/componentes/power supply.png' %}"
-                                 class="card-img-top myimg"
-                                 alt="...">
-                            <div class="card-body text-center">
-                                <h5 class="card-title text-center">Fuente Interna</h5>
-                                <p class="card-text text-center">Marca: {{ fuente_interna.marca }}</p>
-                                <p class="card-text text-center">Modelo: {{ fuente_interna.modelo }}</p>
-                                <p class="card-text text-center">No Serie: {{ fuente_interna.noSerie }}</p>
-                                <a href="#" class="btn btn-primary text-center">Go somewhere</a>
-                            </div>
-                        </div>
+                        {% include 'inventario/componentes/fuente_interna.html' %}
                     </div>
                 {% endfor %}
             {% endif %}
@@ -275,21 +119,10 @@
             {% if lector %}
                 {% for lector in lector %}
                     <div class="col">
-                        <div class="card mycard">
-                            <img src="{% static 'inventario/img/componentes/lector.png' %}" class="card-img-top myimg"
-                                 alt="...">
-                            <div class="card-body text-center">
-                                <h5 class="card-title text-center">Lector</h5>
-                                <p class="card-text text-center">Marca: {{ lector.marca }}</p>
-                                <p class="card-text text-center">Modelo: {{ lector.modelo }}</p>
-                                <p class="card-text text-center">No Serie: {{ lector.noSerie }}</p>
-                                <a href="#" class="btn btn-primary text-center">Go somewhere</a>
-                            </div>
-                        </div>
+                        {% include 'inventario/componentes/lector.html' %}
                     </div>
                 {% endfor %}
             {% endif %}
-
         </div>
     </div>
 {% endblock %}

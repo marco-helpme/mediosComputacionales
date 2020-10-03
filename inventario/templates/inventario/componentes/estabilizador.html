@@ -1,0 +1,23 @@
+{% load static %}
+
+<div class="card mycard">
+    <img src="{% static 'inventario/img/componentes/power.png' %}" class="card-img-top myimg"
+         alt="...">
+    <div class="card-body text-center">
+        <h5 class="card-title text-center">Estabilizador</h5>
+        {% if estabilizador.marca %}
+            <p class="card-text text-center">Marca: {{ estabilizador.marca }}</p>
+        {% endif %}
+        {% if estabilizador.modelo %}
+            <p class="card-text text-center">Modelo: {{ estabilizador.modelo }}</p>
+        {% endif %}
+        {% if estabilizador.noSerie %}
+            <p class="card-text text-center">No Serie: {{ estabilizador.noSerie }}</p>
+        {% endif %}
+        {% if 'inventario.change_estabilizador' in perms %}
+            <a href="/admin/inventario/estabilizador/{{ estabilizador.id }}"
+               target="_blank"
+               class="btn btn-primary">{% include 'inventario/iconos/edit.html' %}</a>
+        {% endif %}
+    </div>
+</div>

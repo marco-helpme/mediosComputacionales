@@ -1,0 +1,22 @@
+{% load static %}
+<div class="card mycard">
+    <img src="{% static 'inventario/img/componentes/keyboard.png' %}" class="card-img-top myimg"
+         alt="...">
+    <div class="card-body text-center">
+        <h5 class="card-title text-center">Teclado</h5>
+        {% if teclado.marca %}
+            <p class="card-text text-center">Marca: {{ teclado.marca }}</p>
+        {% endif %}
+        {% if teclado.modelo %}
+            <p class="card-text text-center">Modelo: {{ teclado.modelo }}</p>
+        {% endif %}
+        {% if teclado.noSerie %}
+            <p class="card-text text-center">No Serie: {{ teclado.noSerie }}</p>
+        {% endif %}
+        {% if 'inventario.change_teclado' in perms %}
+            <a href="/admin/inventario/teclado/{{ teclado.id }}"
+               target="_blank"
+               class="btn btn-primary">{% include 'inventario/iconos/edit.html' %}</a>
+        {% endif %}
+    </div>
+</div>

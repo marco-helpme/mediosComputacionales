@@ -1,0 +1,22 @@
+{% load static %}
+<div class="card mycard">
+    <img src="{% static 'inventario/img/componentes/printer.png' %}" class="card-img-top myimg"
+         alt="...">
+    <div class="card-body text-center">
+        <h5 class="card-title text-center">impresora</h5>
+        {% if impresora.marca %}
+            <p class="card-text text-center">Marca: {{ impresora.marca }}</p>
+        {% endif %}
+        {% if impresora.modelo %}
+            <p class="card-text text-center">Modelo: {{ impresora.modelo }}</p>
+        {% endif %}
+        {% if impresora.noSerie %}
+            <p class="card-text text-center">No Serie: {{ impresora.noSerie }}</p>
+        {% endif %}
+        {% if 'inventario.change_impresora' in perms %}
+            <a href="/admin/inventario/impresora/{{ impresora.id }}"
+               target="_blank"
+               class="btn btn-primary">{% include 'inventario/iconos/edit.html' %}</a>
+        {% endif %}
+    </div>
+</div>

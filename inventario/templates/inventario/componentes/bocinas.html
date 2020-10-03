@@ -1,0 +1,26 @@
+{% load static %}
+
+<div class="card mycard">
+    <img src="{% static 'inventario/img/componentes/speakers.png' %}" class="card-img-top myimg"
+         alt="...">
+    <div class="card-body text-center">
+        <h5 class="card-title text-center">Bocinas</h5>
+        {% if bocinas.marca %}
+            <p class="card-text text-center">Marca: {{ bocina.marca }}</p>
+
+        {% endif %}
+        {% if bocinas.modelo %}
+            <p class="card-text text-center">Modelo: {{ bocina.modelo }}</p>
+
+        {% endif %}
+        {% if bocinas.noSerie %}
+            <p class="card-text text-center">No Serie: {{ bocina.noSerie }}</p>
+
+        {% endif %}
+        {% if 'inventario.change_bocinas' in perms %}
+            <a href="/admin/inventario/bocinas/{{ bocina.id }}"
+               target="_blank"
+               class="btn btn-primary">{% include 'inventario/iconos/edit.html' %}</a>
+        {% endif %}
+    </div>
+</div>

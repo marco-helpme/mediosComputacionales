@@ -1,0 +1,26 @@
+{% load static %}
+<div class="card mycard">
+    <img src="{% static 'inventario/img/componentes/fuente-de-alimentacion.png' %}"
+         class="card-img-top myimg"
+         alt="...">
+    <div class="card-body text-center">
+        <h5 class="card-title text-center">UPS</h5>
+        {% if ups.marca %}
+            <p class="card-text text-center">Marca: {{ ups.marca }}</p>
+
+        {% endif %}
+        {% if ups.modelo %}
+            <p class="card-text text-center">Modelo: {{ ups.modelo }}</p>
+
+        {% endif %}
+        {% if ups.noSerie %}
+            <p class="card-text text-center">No Serie: {{ ups.noSerie }}</p>
+
+        {% endif %}
+        {% if 'inventario.change_ups' in perms %}
+            <a href="/admin/inventario/ups/{{ ups.id }}"
+               target="_blank"
+               class="btn btn-primary">{% include 'inventario/iconos/edit.html' %}</a>
+        {% endif %}
+    </div>
+</div>

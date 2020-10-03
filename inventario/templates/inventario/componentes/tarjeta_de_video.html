@@ -1,0 +1,30 @@
+{% load static %}
+<div class="card mycard">
+    <img src="{% static 'inventario/img/componentes/graphics card.png' %}"
+         class="card-img-top myimg"
+         alt="...">
+    <div class="card-body text-center">
+        <h5 class="card-title text-center">Tarjeta de Video</h5>
+        {% if tarjeta_de_video.marca %}
+
+            <p class="card-text text-center">Marca: {{ tarjeta_de_video.marca }}</p>
+        {% endif %}
+        {% if tarjeta_de_video.modelo %}
+
+            <p class="card-text text-center">Modelo: {{ tarjeta_de_video.modelo }}</p>
+        {% endif %}
+        {% if tarjeta_de_video.capacidad %}
+
+            <p class="card-text text-center">Capacidad: {{ tarjeta_de_video.capacidad }}</p>
+        {% endif %}
+        {% if tarjeta_de_video.noSerie %}
+
+            <p class="card-text text-center">No Serie: {{ tarjeta_de_video.noSerie }}</p>
+        {% endif %}
+        {% if 'inventario.change_tarjeta_de_video' in perms %}
+            <a href="/admin/inventario/tarjeta_de_video/{{ tarjeta_de_video.id }}"
+               target="_blank"
+               class="btn btn-primary">{% include 'inventario/iconos/edit.html' %}</a>
+        {% endif %}
+    </div>
+</div>

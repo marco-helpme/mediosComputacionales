@@ -1,0 +1,22 @@
+{% load static %}
+<div class="card mycard">
+    <img src="{% static 'inventario/img/componentes/lancard.png' %}" class="card-img-top myimg"
+         alt="...">
+    <div class="card-body text-center">
+        <h5 class="card-title text-center">Tarjeta de Red</h5>
+        {% if tarjeta_de_red.marca %}
+            <p class="card-text text-center">Marca: {{ tarjeta_de_red.marca }}</p>
+        {% endif %}
+        {% if tarjeta_de_red.modelo %}
+            <p class="card-text text-center">Modelo: {{ tarjeta_de_red.modelo }}</p>
+        {% endif %}
+        {% if tarjeta_de_red.noSerie %}
+            <p class="card-text text-center">No Serie: {{ tarjeta_de_red.noSerie }}</p>
+        {% endif %}
+        {% if 'inventario.change_tarjeta_de_video' in perms %}
+            <a href="/admin/inventario/tarjeta_de_red/{{ tarjeta_de_red.id }}"
+               target="_blank"
+               class="btn btn-primary">{% include 'inventario/iconos/edit.html' %}</a>
+        {% endif %}
+    </div>
+</div>

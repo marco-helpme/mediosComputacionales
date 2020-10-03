@@ -1,0 +1,26 @@
+{% load static %}
+<div class="card mycard">
+    <img src="{% static 'inventario/img/componentes/power supply.png' %}"
+         class="card-img-top myimg"
+         alt="...">
+    <div class="card-body text-center">
+        <h5 class="card-title text-center">Fuente Interna</h5>
+        {% if fuente_interna.marca %}
+
+            <p class="card-text text-center">Marca: {{ fuente_interna.marca }}</p>
+        {% endif %}
+        {% if fuente_interna.modelo %}
+
+            <p class="card-text text-center">Modelo: {{ fuente_interna.modelo }}</p>
+        {% endif %}
+        {% if fuente_interna.noSerie %}
+            <p class="card-text text-center">No Serie: {{ fuente_interna.noSerie }}</p>
+
+        {% endif %}
+        {% if 'inventario.change_fuente_interna' in perms %}
+            <a href="/admin/inventario/fuente_interna/{{ fuente_interna.id }}"
+               target="_blank"
+               class="btn btn-primary">{% include 'inventario/iconos/edit.html' %}</a>
+        {% endif %}
+    </div>
+</div>

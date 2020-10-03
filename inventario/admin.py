@@ -2,8 +2,8 @@ from django.contrib import admin
 import adminactions.actions as actions
 
 # Register your models here.
-from .models import PC, Area, Region, RAM, Cpu, Monitor, Targeta_de_Red, Lector, Fuente_Interna, Estabilizador, UPS, \
-    Bocinas, Mouse, Teclado, HDD, Motherboard, Targeta_de_Video, SO, Impresora, TipoCapacidadHDD, TipoCapacidadCPU
+from .models import PC, Area, Region, RAM, Cpu, Monitor, Tarjeta_de_Red, Lector, Fuente_Interna, Estabilizador, UPS, \
+    Bocinas, Mouse, Teclado, HDD, Motherboard, Tarjeta_de_Video, SO, Impresora, TipoCapacidadHDD, TipoCapacidadCPU
 
 
 class CpuInline(admin.StackedInline):
@@ -22,12 +22,12 @@ class MonitorInline(admin.StackedInline):
 
 
 class Targeta_de_Red_Inline(admin.StackedInline):
-    model = Targeta_de_Red
+    model = Tarjeta_de_Red
     extra = 0
 
 
 class Targeta_de_Video_Inline(admin.StackedInline):
-    model = Targeta_de_Video
+    model = Tarjeta_de_Video
     extra = 0
 
 
@@ -42,7 +42,7 @@ class Fuente_Intera_Inline(admin.StackedInline):
 
 
 class EstabilizadorInline(admin.StackedInline):
-    model = Monitor
+    model = Estabilizador
     extra = 0
 
 
@@ -91,7 +91,7 @@ admin.site.register(Area)
 admin.site.register(Region)
 admin.site.register(RAM)
 admin.site.register(Cpu)
-admin.site.register(Targeta_de_Red)
+admin.site.register(Tarjeta_de_Red)
 admin.site.register(Lector)
 admin.site.register(Fuente_Interna)
 admin.site.register(Monitor)
@@ -102,7 +102,7 @@ admin.site.register(Mouse)
 admin.site.register(Teclado)
 admin.site.register(HDD)
 admin.site.register(Motherboard)
-admin.site.register(Targeta_de_Video)
+admin.site.register(Tarjeta_de_Video)
 admin.site.register(SO)
 admin.site.register(Impresora)
 admin.site.register(TipoCapacidadHDD)

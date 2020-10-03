@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 from django.shortcuts import render
 from .models import PC, Area, Region, Impresora, Cpu, RAM, Bocinas, Estabilizador, Fuente_Interna, HDD, Lector, Monitor, \
-    Motherboard, Mouse, SO, Targeta_de_Red, Targeta_de_Video, Teclado, UPS
+    Motherboard, Mouse, SO, Tarjeta_de_Red, Tarjeta_de_Video, Teclado, UPS
 
 
 def index(request):
@@ -63,13 +63,14 @@ def pc_list(request):
 
     if request.POST.get('inventario'):
         Noinventario = int(request.POST.get('inventario'))
-        pc = PC.objects.filter(numeroDeInventario = Noinventario)
+        pc = PC.objects.filter(numeroDeInventario=Noinventario)
     if request.POST.get('so'):
         so = request.POST.get('so')
         pc = PC.objects.filter(SO__nombre=so)
 
     context = {'pc': pc, 'so': so}
     return render(request, 'inventario/pc_list.html', context)
+
 
 def pc_component(request, id):
     pc = PC.objects.get(id=id)
@@ -83,8 +84,8 @@ def pc_component(request, id):
         hdd = HDD.objects.filter(pc__id=id)
         motherboard = Motherboard.objects.filter(pc_id=id)
         ups = UPS.objects.filter(pc_id=id)
-        trajeta_de_video = Targeta_de_Video.objects.filter(pc_id=id)
-        tarjeta_de_red = Targeta_de_Red.objects.filter(pc_id=id)
+        trajeta_de_video = Tarjeta_de_Video.objects.filter(pc_id=id)
+        tarjeta_de_red = Tarjeta_de_Red.objects.filter(pc_id=id)
         monitor = Monitor.objects.filter(pc_id=id)
         mouse = Mouse.objects.filter(pc_id=id)
         teclado = Teclado.objects.filter(pc_id=id)
