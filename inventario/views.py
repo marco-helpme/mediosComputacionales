@@ -66,7 +66,11 @@ def pc_list(request):
         pc = PC.objects.filter(numeroDeInventario=Noinventario)
     if request.POST.get('so'):
         so = request.POST.get('so')
-        pc = PC.objects.filter(SO__nombre=so)
+        if str(so) == str('Todos'):
+            pc = PC.objects.all()
+        else:
+            pc = PC.objects.filter(SO__nombre=so)
+
 
     context = {'pc': pc, 'so': so}
     return render(request, 'inventario/pc_list.html', context)
@@ -149,6 +153,7 @@ def bocinasList(request):
 def region_context_processors(HttpRequest):
     region = Region.objects.all()
     areas = Area.objects.all()
+    sistemaOpertivo = SO.objects.all()
 
-    context = {'region': region, 'areas': areas}
+    context = {'region': region, 'areas': areas, 'sistemaOpertivo': sistemaOpertivo}
     return context
